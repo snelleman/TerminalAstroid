@@ -10,11 +10,11 @@ class Explosion():
     i = 0
 
     def __init__(self, posX, posY):
-        stageOne = [["E","E","E"],["E","E","E"]]
-        stageTwo = [[" ","E","E","E"," "],["E"," "," "," ","E"],[" ","E","E","E"," "]]
-        stageThree = [[" ","E","E","E"," "],["E"," "," "," ","E"],["E"," "," "," ","E"],[" ","E","E","E"," "]]
-        stageFour = [[" ","E"," ","E"," "],["E"," "," "," "," "],[" "," "," "," ","E"],[" ","E"," ","E"," "]]
-        #stageFour = [[" "," ","E","E","E"," "," "],[" ","E"," "," "," ","E"," "],["E"," ",," "," "," "," ","E"],[" ","E"," "," "," ","E"," "],[" "," ","E","E","E"," "," "]]
+        stageOne = [["E"]]
+        stageTwo = [["E","E","E"],["E"," ","E"],["E","E","E"]]
+        stageThree = [[" ","E","E","E"," "],["E"," "," "," ","E"],["E"," "," "," ","E"],["E"," "," "," ","E"],[" ","E","E","E"," "]]
+        stageFour = [[" "," ","E","E","E"," "," "],[" ","E"," "," "," ","E"," "],["E"," "," "," "," "," ","E"],["E"," "," "," "," "," ","E"],["E"," "," "," "," "," ","E"],[" ","E"," "," "," ","E"," "],[" "," ","E","E","E"," "," "]]
+        stageFive = [[" "," ","E","E","E","E","E"," "," "],[" ","E","E"," "," "," ","E","E"," "],["E","E"," "," "," "," "," ","E","E"],["E"," "," "," "," "," "," "," ","E"],["E"," "," "," "," "," "," "," ","E"],["E"," "," "," "," "," "," "," ","E"],["E","E"," "," "," "," "," ","E","E"],[" ","E","E"," "," "," ","E","E"," "],[" "," ","E","E","E","E","E"," "," "]]
         self.stages.append(stageOne)
         self.stages.append(stageTwo)
         self.stages.append(stageThree)
@@ -23,7 +23,7 @@ class Explosion():
         self.posY = posY
 
     def paint(self, canvas, height, width):
-        if(self.i>3):
+        if(self.i>4):
             return True
         self.stage = self.stages[self.i]
         h = len(self.stage)
@@ -32,8 +32,8 @@ class Explosion():
             for x in range(w):
                 c = self.stage[y][x]
                 if(c != " "):
-                    Y = int(y+self.posY)
-                    X = int(x+self.posX)
+                    Y = int(y+self.posY) - h/2
+                    X = int(x+self.posX) - w/2
                     if(0<=Y and Y<height and 0<=X and X<width):
                         canvas[Y][X] = c
         self.i+=1
