@@ -22,7 +22,7 @@ class Explosion():
         self.posX = posX
         self.posY = posY
 
-    def paint(self, canvas, height, width):
+    def paint(self, canvas, width, height):
         if(self.i>4):
             return True
         self.stage = self.stages[self.i]
