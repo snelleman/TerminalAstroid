@@ -12,6 +12,7 @@ from Ship import Ship
 from Bullet import Bullet
 from AstroidClass import AstroidClass
 from AstroidSpawner import AstroidSpawner
+from Collision import Collision
 
 inputThread = Input()
 inputThread.start()
@@ -29,6 +30,8 @@ explosions = []
 
 astroidSpawner = AstroidSpawner(width, height)
 
+collision = Collision()
+
 string = ""
 
 lost = "not lost"
@@ -39,13 +42,6 @@ def collideWall():
     if(ship.posY >= height - 4 + ship.height - 1 or ship.posY <= 1):
         return True
     return False
-
-def collision():
-    pos = ship.collision(mObjects)
-    if(pos != None):
-        explosions.append(Explosion(pos[0], pos[1]))
-        global lost
-        loose = "lost"
 
 def fillCanvas():
     #Clear canvas
@@ -109,7 +105,7 @@ while not not run:
     astroidSpawner.spawnAstroid(mObjects)
 
     #Check collision
-    collision()
+    collision.collision(mObjects, explosions)
 
     #move mObjects
     for mObject in mObjects:

@@ -13,11 +13,3 @@ class Ship(MObject):
         self.posY = posY
         self.speedX = 0
         self.speedY = 0
-
-    def collision(self, mObjects):
-        for astroid in mObjects:
-            if(isinstance(astroid, AstroidClass)):
-                pos = self.collideWith(astroid)
-                if(pos != None):
-                    return pos
-        return None

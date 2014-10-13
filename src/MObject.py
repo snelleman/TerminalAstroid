@@ -43,17 +43,3 @@ class MObject():
                     X = int(x+self.posX)
                     if(0<=Y and Y<height and 0<=X and X<width):
                         canvas[Y][X] = c
-
-    def collideWith(self, mObject):
-        y = 0
-        while(y < self.height):
-            x = 0
-            while(x < self.width):
-                Y = y + int(self.posY - mObject.posY)
-                X = x + int(self.posX - mObject.posX)
-                if(0<=Y and Y<mObject.height and 0<=X and X<mObject.width):
-                    if(mObject.mObString[Y][X] != " " and self.mObString[y][x] != " "):
-                        return (x+self.posX, y+self.posY)
-                x+=1
-            y+=1
-        return None
