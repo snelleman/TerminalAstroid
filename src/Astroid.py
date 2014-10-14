@@ -4,8 +4,8 @@ import sys
 import thread
 import time
 import Queue
-
-from InputLinux import Input
+#Jacob was here
+from InputWindows import Input
 from Explosion import Explosion
 from MObject import MObject
 from Ship import Ship
