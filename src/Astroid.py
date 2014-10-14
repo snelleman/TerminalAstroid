@@ -5,7 +5,7 @@ import thread
 import time
 import Queue
 
-from InputWindows import Input
+from InputLinux import Input
 from Explosion import Explosion
 from MObject import MObject
 from Ship import Ship
@@ -82,19 +82,19 @@ while not not run:
         if char==113:
             inputThread.join()
             run = False
-        elif char==75: #left
+        elif char==75 or char==68: #left
             ship.posX-=3
             if(collideWall()):
                 ship.posX+=3
-        elif char==80: #down
+        elif char==80 or char==66: #down
             ship.posY+=2
             if(collideWall()):
                 ship.posY-=2
-        elif char==77: #right
+        elif char==77 or char==67: #right
             ship.posX+=3
             if(collideWall()):
                 ship.posX-=3
-        elif char==72: #up
+        elif char==72 or char==65: #up
             ship.posY-=2
             if(collideWall()):
                 ship.posY+=2
