@@ -4,8 +4,11 @@ import sys
 import thread
 import time
 import Queue
-#Jacob was here
-from InputWindows import Input
+#Jacob was here and Jacob fixed. You are welcome
+try:
+    from InputWindows import Input
+except ImportError:
+    from InputLinux import Input
 from Explosion import Explosion
 from MObject import MObject
 from Ship import Ship
